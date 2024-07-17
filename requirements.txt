@@ -1,5 +1,5 @@
 pandas
-sikit-learn
+scikit-learn
 feature-engine
 flask
 flask-wtf
