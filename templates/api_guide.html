@@ -1,0 +1,254 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-box {
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: #ffffff;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        position: relative;
+    }
+
+    .section-title {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .code-box {
+        background-color: #f1f1f1;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: relative;
+    }
+
+    .code-box code {
+        display: block;
+        white-space: pre-wrap;
+    }
+
+    .copy-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .copy-btn:hover {
+        background-color: #0056b3;
+    }
+
+    pre {
+        margin: 0;
+    }
+
+    .note, .alert {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 5px;
+    }
+
+    .note {
+        background-color: #e9ecef;
+    }
+
+    .alert {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+
+    ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+</style>
+
+<div class="container mt-5">
+    <h1>API Guide - Flight Price Prediction</h1>
+    <p>This guide will help you understand how to interact with the API endpoint.</p>
+
+    <div class="section-box">
+        <div class="section-title">API Endpoint</div>
+        <div class="code-box">
+            <button class="copy-btn" onclick="copyToClipboard('#endpoint-url')">Copy</button>
+            <pre><code id="endpoint-url">https://flask-ml-project-flight-price-prediction.onrender.com/api/predict</code></pre>
+        </div>
+    </div>
+
+    <div class="section-box">
+        <div class="section-title">Request Format</div>
+        <p>The request should have the following format and include the <code>Content-Type: application/json</code> header:</p>
+        <div class="code-box">
+            <button class="copy-btn" onclick="copyToClipboard('#request-format')">Copy</button>
+            <pre><code id="request-format">
+{
+    "airline": "Air India",
+    "date_of_journey": "2024-08-16",
+    "source": "Delhi",
+    "destination": "Cochin",
+    "dep_time": "13:20:00",
+    "arrival_time": "15:20:00",
+    "duration": 2000,
+    "total_stops": 10,
+    "additional_info": "Business Class"
+}
+            </code></pre>
+        </div>
+    </div>
+
+    <div class="section-box">
+        <div class="section-title">Inputs</div>
+        <p>Here are the possible values and formats for each input field:</p>
+    
+        <ul>
+            <li><strong>Airline</strong>:
+                <ul>
+                    <p></p>
+                    <li>Air India</li>
+                    <li>Jet Airways</li>
+                    <li>Indigo</li>
+                    <li>Multiple Carriers</li>
+                    <li>Spicejet</li>
+                    <li>Vistara</li>
+                    <li>Air Asia</li>
+                    <li>Goair</li>
+                    <li>Trujet</li>
+                </ul>
+            </li>
+            <h1></h1>
+            <li><strong>Date of Journey</strong>:
+                <p>Format: <code>YYYY-MM-DD</code></p>
+            </li>
+            <h1></h1>
+            <li><strong>Source</strong>:
+                <ul>
+                    <p></p>
+                    <li>Delhi</li>
+                    <li>Kolkata</li>
+                    <li>Banglore</li>
+                    <li>Mumbai</li>
+                    <li>Chennai</li>
+                </ul>
+            </li>
+            <h1></h1>
+            <li><strong>Destination</strong>:
+                <ul>
+                    <p></p>
+                    <li>Cochin</li>
+                    <li>Banglore</li>
+                    <li>New Delhi</li>
+                    <li>Delhi</li>
+                    <li>Hyderabad</li>
+                    <li>Kolkata</li>
+                </ul>
+            </li>
+            <h1></h1>
+            <li><strong>Departure Time</strong>:
+                <p>Format: <code>HH:MM:SS</code></p>
+            </li>
+            <h1></h1>
+            <li><strong>Arrival Time</strong>:
+                <p>Format: <code>HH:MM:SS</code></p>
+            </li>
+            <h1></h1>
+            <li><strong>Duration</strong>:
+                    <p>Format: <code>Integer (in minutes)</code></p>
+            </li>
+            <h1></h1>
+            <li><strong>Total Stops</strong>:
+                <p>Format: <code>Integer</code></p>
+            </li>
+            <h1></h1>
+            <li><strong>Additional Info</strong>:
+                <ul>
+                    <p></p>
+                    <li>No Info</li>
+                    <li>In-flight meal not included</li>
+                    <li>1 Long layover</li>
+                    <li>No check-in baggage included</li>
+                    <li>Change airports</li>
+                    <li>Red-eye flight</li>
+                    <li>Business class</li>
+                    <li>1 Short layover</li>
+                    <li>2 Long layover</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+   
+
+    <div class="section-box">
+        <div class="section-title">Example Request Using `curl`</div>
+        <p><code>curl</code> is a command-line tool used for making HTTP requests. Here’s an example of how to use <code>curl</code> to send a request to the API:</p>
+        <div class="code-box">
+            <button class="copy-btn" onclick="copyToClipboard('#curl-example')">Copy</button>
+            <pre><code id="curl-example">
+curl -X POST https://flask-ml-project-flight-price-prediction.onrender.com/api/predict \
+     -H "Content-Type: application/json" \
+     -d '{
+         "airline": "Air India",
+         "date_of_journey": "2024-08-16",
+         "source": "Delhi",
+         "destination": "Cochin",
+         "dep_time": "13:20:00",
+         "arrival_time": "15:20:00",
+         "duration": 2000,
+         "total_stops": 10,
+         "additional_info": "Business Class"
+     }'
+            </code></pre>
+        </div>
+    </div>
+
+    <div class="section-box">
+        <div class="section-title">Response Format</div>
+        <p>The API will return a JSON response with the predicted flight price. An example response might look like this:</p>
+        <div class="code-box">
+            <button class="copy-btn" onclick="copyToClipboard('#response-example')">Copy</button>
+            <pre><code id="response-example">
+{
+    "prediction": 13435.7
+}
+            </code></pre>
+        </div>
+    </div>
+
+    <div class="section-box note">
+        <p>Ensure that all fields are correctly formatted as per the example provided. Invalid data or missing fields may result in errors.</p>
+    </div>
+
+    <div class="section-box alert">
+        <p><strong>Important:</strong> This API is for demonstration purposes only and may not be suitable for production use. The model used for prediction is a simple machine learning model and may not be accurate for all scenarios.</p>
+</div>
+
+<script>
+    function copyToClipboard(element) {
+        var copyText = document.querySelector(element).textContent;
+        navigator.clipboard.writeText(copyText).then(function() {
+            alert('Copied to clipboard!');
+        }, function(err) {
+            alert('Failed to copy text: ', err);
+        });
+    }
+</script>
+{% endblock %}

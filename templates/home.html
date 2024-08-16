@@ -1,8 +1,47 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div>
-    <h3>This is a Flight Prices Prediction model based on Machine Learning</h3>
-    <a href=" {{url_for('predict')}} ">Click here!</a>
+<style>
+    .home-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .home-container h3 {
+        margin-bottom: 20px;
+        font-size: 1.8em;
+        font-weight: bold;
+    }
+
+    .home-container h4 {
+        margin-bottom: 15px;
+        font-size: 1.2em;
+    }
+
+    .home-container a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .home-container a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="home-container">
+    <h3>Flight Prices Prediction Model</h3>
+    <p>This model uses Machine Learning to predict flight prices based on various parameters.</p>
+    
+    <h4>For prediction using the UI:</h4>
+    <p><a href="{{ url_for('predict') }}">Click here!</a></p>
+
+    <h4>For prediction using the API:</h4>
+    <p><a href="{{ url_for('api_predict_help') }}">Click here!</a></p>
 </div>
 {% endblock content %}

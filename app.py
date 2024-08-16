@@ -19,6 +19,10 @@ model = joblib.load("random-forest-model.joblib")
 def home():
     return render_template("home.html", title="Home")
 
+@app.route("/api/help")
+def api_predict_help():
+    return render_template("api_guide.html")
+
 # API route for prediction
 @app.route("/api/predict", methods=["POST"])
 def api_predict():

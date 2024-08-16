@@ -48,7 +48,7 @@ class InputForm(FlaskForm):
         validators=[DataRequired()]
     )
     duration = IntegerField(
-        label='Duration',
+        label='Duration in minutes',
         validators=[DataRequired()]
     )
     total_stops = IntegerField(
