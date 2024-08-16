@@ -4,7 +4,8 @@ from flask import (
     Flask,
     url_for,
     render_template,
-    request
+    request,
+    jsonify 
 )
 from forms import InputForm
 
@@ -18,8 +19,41 @@ model = joblib.load("random-forest-model.joblib")
 def home():
     return render_template("home.html", title="Home")
 
+# API route for prediction
+@app.route("/api/predict", methods=["POST"])
+def api_predict():
+    if request.json:
+        try:
+            # Extract the JSON data
+            data = request.json
+                        
+            # Construct the DataFrame
+            x_new = pd.DataFrame({
+                "airline": [data.get("airline")],
+                "date_of_journey": [data.get("date_of_journey")],
+                "source": [data.get("source")],
+                "destination": [data.get("destination")],
+                "dep_time": [data.get("dep_time")],
+                "arrival_time": [data.get("arrival_time")],
+                "duration": [data.get("duration")],
+                "total_stops": [data.get("total_stops")],
+                "additional_info": [data.get("additional_info")]
+            })
 
-@app.route("/predict",methods=["GET","POST"])
+
+            # Make prediction
+            prediction = model.predict(x_new)[0]
+
+            # Return the prediction as a JSON response
+            return jsonify({"prediction": prediction})
+        
+        except Exception as e:
+            return jsonify({"error": str(e)})
+    else:
+        return jsonify({"error": "Invalid input, expecting JSON data."})
+
+# Route for form-based prediction
+@app.route("/predict", methods=["GET", "POST"])
 def predict():
     form = InputForm()
     if form.validate_on_submit():
@@ -40,8 +74,5 @@ def predict():
         message = "Please provide valid input details!"
     return render_template("predict.html", title="Predict", form=form, output=message)
 
-
-
-
-if __name__ == "__main__" :
+if __name__ == "__main__":
     app.run(debug=True)
