@@ -3,4 +3,5 @@ scikit-learn
 feature-engine
 flask
 flask-wtf
+xgboost
 gunicorn
