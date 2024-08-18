@@ -11,7 +11,6 @@ from forms import InputForm
 import pickle
 import xgboost as xgb
 import numpy as np
-from custom_functions import is_north
 from custom_functions import *
 
 app = Flask(__name__)
@@ -115,3 +114,31 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
+
+
+
+def is_north(X):
+    '''
+    This function takes a DataFrame or a numpy array and returns a DataFrame with new columns
+    that indicate whether the value in the columns "source" and "destination" are cities in the north of India.
+    If the value is a city in the north, the new column will have a value of 1, otherwise it will have a value of 0.
+
+    Parameters:
+    X: DataFrame or numpy array
+
+    Returns:
+    DataFrame
+    '''
+    columns = X.columns.to_list()
+    north_cities = ["Delhi","New Delhi","Kolkata","Mumbai"]
+    return(
+        X
+        .assign(**{
+            f"{col}_is_north": X.loc[:, col].isin(north_cities).astype(int)
+            for col in columns
+        })
+        .drop(columns=columns)
+    )
