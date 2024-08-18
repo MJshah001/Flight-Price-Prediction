@@ -11,6 +11,7 @@ from forms import InputForm
 import pickle
 import xgboost as xgb
 import numpy as np
+from custom_functions import is_north
 from custom_functions import *
 
 app = Flask(__name__)
