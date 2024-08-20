@@ -3,6 +3,10 @@
 ## Project Overview
 This project focuses on predicting flight prices using machine learning techniques. The dataset used for this project includes various features such as airline, source, destination, departure time, and more. The model was trained using XGBoost on AWS SageMaker and deployed as a REST API using Flask, as well as a web application using Streamlit.
 
+##  Live Demo
+Flask APP and API : [click here](https://flask-ml-project-flight-price-prediction.onrender.com/)
+Streamlit APP : [click here](https://flight-price-prediction-aws-sagemaker-machine-learning-project.streamlit.app/)
+
 ## Project Architecture
 The project is divided into three major sections: **Data Preprocessing & Feature Engineering**, **Model Training**, and **Deployment**.
 
