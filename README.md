@@ -1,4 +1,4 @@
-# Flight Price Prediction using XGBoost
+# Flight Price Prediction AWS Sagemaker
 
 ## Project Overview
 This project focuses on predicting flight prices using machine learning techniques. The dataset used for this project includes various features such as airline, source, destination, departure time, and more. The model was trained using XGBoost on AWS SageMaker and deployed as a REST API using Flask, as well as a web application using Streamlit.
@@ -9,7 +9,7 @@ Flask APP and API : [click here](https://flask-ml-project-flight-price-predictio
 Streamlit APP : [click here](https://flight-price-prediction-aws-sagemaker-machine-learning-project.streamlit.app/)
 
 ## Project Architecture
-The project is divided into three major sections: **Data Preprocessing & Feature Engineering**, **Model Training**, and **Deployment**.
+The project is divided into three major sections: **Data Preprocessing & Feature Engineering**, **Model Training**, and **Model Serving & Deployment**.
 
 ### 1. Data Preprocessing & Feature Engineering
 - **Environment:** Local Machine
@@ -29,13 +29,15 @@ The project is divided into three major sections: **Data Preprocessing & Feature
   - `preprocessor.pkl`: The serialized preprocessor used for transforming new data.
   - `xgboost-model`: The final trained model.
 
-### 3. Deployment
-- **Environment:** Local Machine
+### 3. Model Serving & Deployment
+- **Environment:** Local Machine or Cloud
 - **Files:**
   - `app.py`: Contains the Flask API to serve predictions.
-  - `custom_functions.py`: Custom helper functions used in the Flask app.
+  - `streamlit-app.py`: Contains the Streamlit App to serve predictions.
+  - `custom_functions.py`: Custom preprocessing functions used in both Flask and Streamlit app.
   - `forms.py`: Manages the form inputs for the web interface.
-  - `requirements.txt`: Lists all dependencies required to run the project.
+  - `requirements.txt`: Lists all dependencies required to run the Flask app.
+  - `streamlit-requirements.txt`: Lists all dependencies required to run the Streamlit app.
   - **Templates Folder:**
     - `home.html`, `layout.html`, `predict.html`, `api_guide.html`: HTML files for the Flask web interface.
   - **Streamlit App:** Deploys the model using Streamlit for easy interaction.
@@ -44,13 +46,14 @@ The project is divided into three major sections: **Data Preprocessing & Feature
 ### Prerequisites
 - Python 3.8 or later
 - Anaconda or any Python environment manager
+- Jupyter Notebook
 - AWS account with access to SageMaker
 - Libraries mentioned in `requirements.txt`
 
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/flight-price-prediction.git
+   git clone https://github.com/MJshah001/Tokyo-Olympics-DataAnalysis-Azure-DataEngineering-Project.git
    cd flight-price-prediction
 2. Create a Virtual Environment
    ```bash
