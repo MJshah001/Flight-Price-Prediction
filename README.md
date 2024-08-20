@@ -5,6 +5,7 @@ This project focuses on predicting flight prices using machine learning techniqu
 
 ##  Live Demo
 Flask APP and API : [click here](https://flask-ml-project-flight-price-prediction.onrender.com/)
+
 Streamlit APP : [click here](https://flight-price-prediction-aws-sagemaker-machine-learning-project.streamlit.app/)
 
 ## Project Architecture
