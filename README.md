@@ -177,7 +177,7 @@ curl -X POST https://flask-ml-project-flight-price-prediction.onrender.com/api/p
 
 ```
 
-### Response FOrmat
+### Response Format
 
 The API will return a JSON response with the predicted flight price. An example response might look like this:
 
@@ -187,5 +187,39 @@ The API will return a JSON response with the predicted flight price. An example 
 }
 ```
 Find more details on https://flask-ml-project-flight-price-prediction.onrender.com/api/help
+
+
+## Flight Price Prediction using UI
+
+Option 1. Flask app UI: https://flask-ml-project-flight-price-prediction.onrender.com/predict
+
+Option 2: Streamlit app: https://flight-price-prediction-aws-sagemaker-machine-learning-project.streamlit.app/
+
+
+## Challenges & Learnings
+
+- **Data Cleaning:**Handling Inconsistent Data Formats missing Values and Anomalies
+- **Feature Engineering:** Creating new features to capture important relationships.
+- **Model Tuning:** Hyperparameter tuning to improve model performance.
+- **Deployment:** Deploying the model as both an API and a web app using Flask and Streamlit.
+
+## Future Work
+
+- Improve model accuracy with additional features and data.
+- Integrate with more advanced deployment options like Docker or Kubernetes.
+- Develop an API endpoiont & user interface on the web app for model retraining with new training data.
+
+## Conclusion
+
+This project demonstrates the entire lifecycle of a data science machine learning project, from data preprocessing and model training to deployment and API integration. It served as a valuable learning experience in handling real-world data and deploying machine learning models.
+
+## Author
+
+- **Monil Shah** - _Master's Student in Data Science, NJIT_
+
+## Acknowledgements
+
+Special Thanks to [Mohammed Misbahullah Sheriff ](https://www.linkedin.com/in/mohammed-misbahullah-sheriff/) for beautifully explaining EDA & AWS Cloud Concepts which helped consistently throught the project.
+
 
 
