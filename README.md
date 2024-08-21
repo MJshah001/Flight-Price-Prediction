@@ -9,7 +9,11 @@ Flask APP and API : [click here](https://flask-ml-project-flight-price-predictio
 Streamlit APP : [click here](https://flight-price-prediction-aws-sagemaker-machine-learning-project.streamlit.app/)
 
 ## Project Architecture
+
+![project architecture](https://github.com/MJshah001/Flight-Price-Prediction/blob/master/screenshots/flight%20price%20prediction%20project%20architecture.jpg)
+
 The project is divided into three major sections: **Data Preprocessing & Feature Engineering**, **Model Training**, and **Model Serving & Deployment**.
+
 
 ### 1. Data Preprocessing & Feature Engineering
 - **Environment:** Local Machine
@@ -22,7 +26,7 @@ The project is divided into three major sections: **Data Preprocessing & Feature
     - `train.csv`, `test.csv`, `validation.csv`: The split datasets used for training, validation, and testing.
 
 ### 2. Model Training
-- **Environment:** AWS SageMaker
+- **Environment:** AWS cloud
 - **Files:**
   - `model_training.ipynb`: Trains the XGBoost model using the preprocessed data.
   - `train_preprocessed`, `test_preprocessed`, `validation_preprocessed`: Processed datasets used for training and evaluating the model.
@@ -30,7 +34,7 @@ The project is divided into three major sections: **Data Preprocessing & Feature
   - `xgboost-model`: The final trained model.
 
 ### 3. Model Serving & Deployment
-- **Environment:** Local Machine or Cloud
+- **Environment:** Local Machine or WEB
 - **Files:**
   - `app.py`: Contains the Flask API to serve predictions.
   - `streamlit-app.py`: Contains the Streamlit App to serve predictions.
@@ -89,11 +93,11 @@ Note: refer to [Screenshots Folder](https://github.com/MJshah001/Flight-Price-Pr
 Note: refer to [Screenshots Folder](https://github.com/MJshah001/Flight-Price-Prediction/tree/master/screenshots) for more information regaring Model training steps.
 
 ### Model Serving & Deployment
-1. setup app.py file to create flask app.
+1. setup `app.py` file to create flask app.
 2. To deploy locally using Flask, run:
    ```bash
    python app.py
-3. setup streamlit-app.py file to create streamlit app.
+3. setup `streamlit-app.py` file to create streamlit app.
 4. To deploy locally using Streamlit, run:
    ```bash
    streamlit run streamlit-app.py
@@ -106,7 +110,7 @@ Note: refer to [Screenshots Folder](https://github.com/MJshah001/Flight-Price-Pr
         - Provide build command as `pip install -r requirements.txt`.
         - Provide Start command as `gunicorn app:app`.
         - Click `Deploy Web Service`.
-6. To deply streamlit app on cloud
+6. To deploy streamlit app on cloud
     - Login to Streamlit share : https://share.streamlit.io/
     - click on create app.
        - Provide your repositry URL or my public url `https://github.com/MJshah001/Flight-Price-Prediction`.
