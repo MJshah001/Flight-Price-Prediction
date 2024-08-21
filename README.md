@@ -1,4 +1,4 @@
-# Flight Price Prediction using AWS Sagemaker, Flask API & Streamlit
+# Flight Price Prediction [ AWS Sagemaker, Flask API & Streamlit App ]
 
 ## Project Overview
 This project focuses on predicting flight prices using machine learning techniques. The dataset used for this project includes various features such as airline, source, destination, departure time, and more. The model was trained using XGBoost on AWS SageMaker and deployed as a REST API using Flask, as well as a web application using Streamlit.
@@ -245,13 +245,6 @@ Option 2: Streamlit app: https://flight-price-prediction-aws-sagemaker-machine-l
 
 ![Streamlit predict UI](https://github.com/MJshah001/Flight-Price-Prediction/blob/master/screenshots/streamlit%20app.png)
 
-
-## Challenges & Learnings
-
-- **Data Cleaning:** Handling Inconsistent Data Formats missing Values and Anomalies
-- **Feature Engineering:** Creating new features to capture important relationships.
-- **Model Tuning:** Hyperparameter tuning to improve model performance.
-- **Deployment:** Deploying the model as both an API and a web app using Flask and Streamlit.
 
 ## Future Work
 
