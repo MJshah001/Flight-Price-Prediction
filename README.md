@@ -52,6 +52,8 @@ The project is divided into three major sections: **Data Preprocessing & Feature
 - Free Streamlit Cloud Account : https://share.streamlit.io/ (for Cloud Deployment)
 - Free Render Account : https://dashboard.render.com/ (for Cloud Deployment)
 
+Note: refer to [Screenshots Folder](https://github.com/MJshah001/Flight-Price-Prediction/tree/master/screenshots) for more information regaring setup.
+
 ### Installation
 1. Clone the repository:
    ```bash
@@ -84,6 +86,8 @@ The project is divided into three major sections: **Data Preprocessing & Feature
 4. Execute the `model_training.ipynb` to save the trained model and preprocessor to the S3 bucket for deployment.
 5. Download trained `xgboost-model` and `preprocessor.pkl` for deployment.
 
+Note: refer to [Screenshots Folder](https://github.com/MJshah001/Flight-Price-Prediction/tree/master/screenshots) for more information regaring Model training steps.
+
 ### Model Serving & Deployment
 1. setup app.py file to create flask app.
 2. To deploy locally using Flask, run:
@@ -112,6 +116,8 @@ The project is divided into three major sections: **Data Preprocessing & Feature
 ## Flight Price Prediction API
 
 This section will help you understand how to interact with the API endpoint for predicting flight prices.
+
+![postman api test](https://github.com/MJshah001/Flight-Price-Prediction/blob/master/screenshots/Postman%20API%20test.png)
 
 ### API Endpoint
 
@@ -229,12 +235,16 @@ Find more details on https://flask-ml-project-flight-price-prediction.onrender.c
 
 Option 1. Flask app UI: https://flask-ml-project-flight-price-prediction.onrender.com/predict
 
+![Flask predict UI](https://github.com/MJshah001/Flight-Price-Prediction/blob/master/screenshots/flask%20predict%20UI.png)
+
 Option 2: Streamlit app: https://flight-price-prediction-aws-sagemaker-machine-learning-project.streamlit.app/
+
+![Streamlit predict UI](https://github.com/MJshah001/Flight-Price-Prediction/blob/master/screenshots/streamlit%20app.png)
 
 
 ## Challenges & Learnings
 
-- **Data Cleaning:**Handling Inconsistent Data Formats missing Values and Anomalies
+- **Data Cleaning:** Handling Inconsistent Data Formats missing Values and Anomalies
 - **Feature Engineering:** Creating new features to capture important relationships.
 - **Model Tuning:** Hyperparameter tuning to improve model performance.
 - **Deployment:** Deploying the model as both an API and a web app using Flask and Streamlit.
@@ -243,19 +253,15 @@ Option 2: Streamlit app: https://flight-price-prediction-aws-sagemaker-machine-l
 
 - Improve model accuracy with additional features and data.
 - Integrate with more advanced deployment options like Docker or Kubernetes.
-- Develop an API endpoiont & user interface on the web app for model retraining with new training data.
+- Develop an API endpoint & user interface on the web app for model retraining with new training data.
 
 ## Conclusion
 
-This project demonstrates the entire lifecycle of a data science machine learning project, from data preprocessing and model training to deployment and API integration. It served as a valuable learning experience in handling real-world data and deploying machine learning models.
+This project demonstrated the entire lifecycle of a data science machine learning project, from data preprocessing and model training to deployment and API integration. It served as a valuable learning experience in handling real-world data and deploying machine learning models.
 
 ## Author
 
 - **Monil Shah** - _Master's Student in Data Science, NJIT_
-
-## Acknowledgements
-
-Special Thanks to [Mohammed Misbahullah Sheriff ](https://www.linkedin.com/in/mohammed-misbahullah-sheriff/) for beautifully explaining EDA & AWS Cloud Concepts which helped consistently throught the project.
 
 
 
