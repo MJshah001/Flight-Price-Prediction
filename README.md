@@ -68,31 +68,50 @@ The project is divided into three major sections: **Data Preprocessing & Feature
 
 ### Data Preprocessing & Feature Engineering
 1. Run the `data_cleaning.ipynb` notebook to clean the data.
-   - SET `PROJECT_DIR` : provide the Project Directory i.e. folder path
-   - SET `DATA_DIR` : provide the name of folder in which csv data file resides 
+   - SET `PROJECT_DIR` : Define the directory path where your project is located.
+   - SET `DATA_DIR` : Specify the name of the folder containing the CSV data files. 
 2. Perform exploratory data analysis using `EDA.ipynb`.
-   - SET `file_path` : provide the path for training data.
+   - SET `file_path` : Specify the full path to the training data file.
 3. Generate and save new features with `feature_engineering.ipynb`.
-   - SET `file_path` : provide the path for training data.
+   - SET `file_path` : Specify the full path to the training data file.
 
 
 ### Model Training
-1. Set up the AWS sagemaker Notebook instance and upload model_training.ipynb, train, test & validation csv files to instance
-2. Upload the preprocessed data to your AWS S3 bucket.
+1. Set up the AWS sagemaker Notebook instance and upload model_training.ipynb, train, test & validation csv files to instance.
+2. create your AWS S3 bucket to store preprocess data and trained model.
 3. Open `model_training.ipynb` on SageMaker and train the XGBoost model.
-4. Save the trained model and preprocessor to the S3 bucket for deployment.
+   - SET `BUCKET_NAME` : Specify the name of your newly created S3 bucket.
+4. Execute the `model_training.ipynb` to save the trained model and preprocessor to the S3 bucket for deployment.
+5. Download trained `xgboost-model` and `preprocessor.pkl` for deployment.
 
-### Deployment
-1. To deploy using Flask, run:
+### Model Serving & Deployment
+1. setup app.py file to create flask app.
+2. To deploy locally using Flask, run:
    ```bash
    python app.py
-2. To deploy using Streamlit, run:
+3. setup streamlit-app.py file to create streamlit app.
+4. To deploy locally using Streamlit, run:
    ```bash
-   streamlit run app.py
+   streamlit run streamlit-app.py
+5. To deploy flask app on cloud
+    - Login to Render Dashboard : https://dashboard.render.com/
+    - Create a New Web service
+        - provide unique `Name` for your webservice.
+        - Select Free Instance Type `Free 0.1 CPU 512 MB`.
+        - Provide your repositry URL or my public url `https://github.com/MJshah001/Flight-Price-Prediction`.
+        - Provide build command as `pip install -r requirements.txt`.
+        - Provide Start command as `gunicorn app:app`.
+        - Click `Deploy Web Service`.
+6. To deply streamlit app on cloud
+    - Login to Streamlit share : https://share.streamlit.io/
+    - click on create app.
+       - Provide your repositry URL or my public url `https://github.com/MJshah001/Flight-Price-Prediction`.
+       - Provide `Main file path` as `streamlit-app.py`.
+       - click `Deploy`.
 
 ## Flight Price Prediction API
 
-This guide will help you understand how to interact with the API endpoint for predicting flight prices.
+This section will help you understand how to interact with the API endpoint for predicting flight prices.
 
 ### API Endpoint
 
