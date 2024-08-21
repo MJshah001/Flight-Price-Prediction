@@ -1,4 +1,4 @@
-# Flight Price Prediction AWS Sagemaker
+# Flight Price Prediction using AWS Sagemaker, Flask API & Streamlit
 
 ## Project Overview
 This project focuses on predicting flight prices using machine learning techniques. The dataset used for this project includes various features such as airline, source, destination, departure time, and more. The model was trained using XGBoost on AWS SageMaker and deployed as a REST API using Flask, as well as a web application using Streamlit.
@@ -40,20 +40,22 @@ The project is divided into three major sections: **Data Preprocessing & Feature
   - `streamlit-requirements.txt`: Lists all dependencies required to run the Streamlit app.
   - **Templates Folder:**
     - `home.html`, `layout.html`, `predict.html`, `api_guide.html`: HTML files for the Flask web interface.
-  - **Streamlit App:** Deploys the model using Streamlit for easy interaction.
+
 
 ## Project Setup
 ### Prerequisites
 - Python 3.8 or later
 - Anaconda or any Python environment manager
-- Jupyter Notebook
-- AWS account with access to SageMaker
-- Libraries mentioned in `requirements.txt`
+- Jupyter Notebook (for Data Wrangling and EDA)
+- AWS account with access to SageMaker (for Model Training)
+- Libraries mentioned in `requirements.txt`/`streamlit-requirements.txt`
+- Free Streamlit Cloud Account : https://share.streamlit.io/ (for Cloud Deployment)
+- Free Render Account : https://dashboard.render.com/ (for Cloud Deployment)
 
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/MJshah001/Tokyo-Olympics-DataAnalysis-Azure-DataEngineering-Project.git
+   git clone https://github.com/MJshah001/Flight-Price-Prediction.git
    cd flight-price-prediction
 2. Create a Virtual Environment
    ```bash
@@ -62,16 +64,23 @@ The project is divided into three major sections: **Data Preprocessing & Feature
 3. Install dependencies
    ```bash
    pip install -r requirements.txt
+   pip install -r streamlit-requirements.txt
 
 ### Data Preprocessing & Feature Engineering
 1. Run the `data_cleaning.ipynb` notebook to clean the data.
+   - SET `PROJECT_DIR` : provide the Project Directory i.e. folder path
+   - SET `DATA_DIR` : provide the name of folder in which csv data file resides 
 2. Perform exploratory data analysis using `EDA.ipynb`.
+   - SET `file_path` : provide the path for training data.
 3. Generate and save new features with `feature_engineering.ipynb`.
+   - SET `file_path` : provide the path for training data.
+
 
 ### Model Training
-1. Upload the preprocessed data to your AWS S3 bucket.
-2. Open `model_training.ipynb` on SageMaker and train the XGBoost model.
-3. Save the trained model and preprocessor to the S3 bucket for deployment.
+1. Set up the AWS sagemaker Notebook instance and upload model_training.ipynb, train, test & validation csv files to instance
+2. Upload the preprocessed data to your AWS S3 bucket.
+3. Open `model_training.ipynb` on SageMaker and train the XGBoost model.
+4. Save the trained model and preprocessor to the S3 bucket for deployment.
 
 ### Deployment
 1. To deploy using Flask, run:
