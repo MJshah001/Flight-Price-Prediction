@@ -1,12 +1,14 @@
-# Flight Price Prediction [ AWS Sagemaker, Flask API & Streamlit App ]
+# Flight Price Prediction [ AWS Sagemaker, Flask API, Streamlit App & Docker ]
 
 ## Project Overview
-This project focuses on predicting flight prices using machine learning techniques. The dataset used for this project includes various features such as airline, source, destination, departure time, and more. The model was trained using XGBoost on AWS SageMaker and deployed as a REST API using Flask, as well as a web application using Streamlit.
+This project focuses on predicting flight prices using machine learning techniques. The dataset used for this project includes various features such as airline, source, destination, departure time, and more. The model was trained using XGBoost on AWS SageMaker and deployed as a REST API using Flask, a web application using Streamlit, and a Docker container for advanced deployment.
 
 ##  Live Demo
 Flask APP and API : [click here](https://flask-ml-project-flight-price-prediction.onrender.com/)
 
 Streamlit APP : [click here](https://flight-price-prediction-aws-sagemaker-machine-learning-project.streamlit.app/)
+
+Docker Image : [click here](https://hub.docker.com/r/mjshah001/flight-price-prediction-app)
 
 ## Project Architecture
 
@@ -116,6 +118,59 @@ Note: refer to [Screenshots Folder](https://github.com/MJshah001/Flight-Price-Pr
        - Provide your repositry URL or my public url `https://github.com/MJshah001/Flight-Price-Prediction`.
        - Provide `Main file path` as `streamlit-app.py`.
        - click `Deploy`.
+7. Docker Deployment
+      1. **Build the Docker image locally:**
+    ```bash
+    docker build -t flight-price-prediction-app .
+    ```
+      2. **Push the Docker image to Docker Hub:**
+    ```bash
+    docker push mjshah001/flight-price-prediction-app
+    ```
+      3. **Pull and run the Docker image:**
+    ```bash
+    docker pull mjshah001/flight-price-prediction-app
+    docker run -p 5000:5000 mjshah001/flight-price-prediction-app
+    ```
+
+    
+## Installation via Docker
+
+To simplify the installation process and run the Flight Price Prediction application using Docker, follow these steps:
+
+1. **Ensure Docker is Installed:**
+   - If Docker is not installed, download and install it from the [official Docker website](https://www.docker.com/get-started).
+
+2. **Pull the Docker Image:**
+   - To obtain the pre-built Docker image for the Flight Price Prediction application, use the following command:
+     ```bash
+     docker pull mjshah001/flight-price-prediction-app
+     ```
+
+3. **Run the Docker Container:**
+   - Start a new container from the pulled Docker image and map the container's port to your local machine's port. This allows you to access the application from your browser:
+     ```bash
+     docker run -p 5000:5000 mjshah001/flight-price-prediction-app
+     ```
+   - Here, `5000:5000` maps port 5000 on your local machine to port 5000 on the Docker container. Adjust the ports if necessary.
+
+4. **Access the Application:**
+   - Open your web browser and navigate to `http://localhost:5000` to access the Flask API and web interface.
+   - For the Streamlit app, if you have deployed it separately, use the provided Streamlit app URL.
+
+5. **Stop the Docker Container:**
+   - To stop the running container, find the container ID using:
+     ```bash
+     docker ps
+     ```
+   - Then stop the container with:
+     ```bash
+     docker stop <container_id>
+     ```
+   - Replace `<container_id>` with the actual ID of the running container.
+
+By using Docker, you can easily run the Flight Price Prediction application in a consistent environment without worrying about dependencies and configurations.
+
 
 ## Flight Price Prediction API
 
